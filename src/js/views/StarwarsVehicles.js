@@ -38,18 +38,20 @@ const StarwarsVehicles = () => {
             {vehicles.map((vehicle, index) => {
                 return (
                     <div key={vehicles.uid} className="col-md-3 my-5">
-                        <div className="card" style={{ width: "18rem" }}>
-                            <img className="card-img-top" src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`} alt={vehicle.name}
-                                onError={(e) => {
-                                    e.target.onerror = null;
-                                    e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
-                                }} />
-                            <div className="card-body">
-                                <p className="card-text">
-                                    {vehicle.name}
-                                </p>
+                        <Link to={`/StarwarsVehicles/${vehicle.uid}`}>
+                            <div className="card" style={{ width: "18rem" }}>
+                                <img className="card-img-top" src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicle.uid}.jpg`} alt={vehicle.name}
+                                    onError={(e) => {
+                                        e.target.onerror = null;
+                                        e.target.src = "https://starwars-visualguide.com/assets/img/placeholder.jpg";
+                                    }} />
+                                <div className="card-body">
+                                    <p className="card-text">
+                                        {vehicle.name}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 );
             })}

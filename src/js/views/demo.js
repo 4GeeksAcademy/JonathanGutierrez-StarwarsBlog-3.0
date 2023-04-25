@@ -11,6 +11,8 @@ export const Demo = () => {
 	return (
 		<div className="container">
 
+			<h1>FAVORITOS</h1>
+
 			<br />
 			<Link to="/">
 				<button className="btn btn-primary">Back home</button>
