@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router';
 import { Link } from "react-router-dom";
+import { Context } from './store/appContext';
 
 const PlanetsDetails = () => {
+
+    const { store, actions } = useContext(Context);
 
     const [onePlanet, setOnePlanet] = useState({});
     const { id } = useParams();
@@ -66,6 +69,11 @@ const PlanetsDetails = () => {
                     <p>
                         <strong>Terrain:</strong> {onePlanet.terrain}
                     </p>
+
+                    <button onClick={() => {
+                        actions.selectElement(onePlanet)
+                        actions.addFavoritos()
+                    }} className="btn btn-success">FAVORITOS</button>
 
                 </div>
             </div>

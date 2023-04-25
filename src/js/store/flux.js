@@ -15,14 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavoritos: () => {
-
 				const store = getStore();
-				const newFavourites = store.idElements
-				setStore({ favoritos: [...store.favoritos, newFavourites] })
-
+				const newFavourites = store.idElements;
+				if (!store.favoritos.includes(newFavourites)) {
+					setStore({ favoritos: [...store.favoritos, newFavourites] });
+				}
 				console.log(store.favoritos);
-
-			}
+			},
+			removeFavorite: (fav) => {
+				const store = getStore();
+				const updatedArray = store.favoritos.filter((favorito) => favorito !== fav);
+				setStore({ favoritos: updatedArray });
+			},
 
 		}
 	};
