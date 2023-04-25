@@ -74,7 +74,10 @@ const CharacterDetails = () => {
                         <strong>Skin Color:</strong> {oneCharacter.skin_color}
                     </p>
 
-                    <button className="btn btn-success">{store.nombre}</button>
+                    <button onClick={() => {
+                        actions.selectElement(oneCharacter)
+                        actions.addFavoritos()
+                    }} className="btn btn-success">FAVORITOS</button>
 
                 </div>
             </div>
